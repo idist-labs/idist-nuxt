@@ -18,116 +18,48 @@
         </span>
         </nuxt-link>
       </a-menu-item>
-      <a-sub-menu key='admin-users'>
-        <span slot='title'>
-          <a-icon type='user' />
-          <span>Người dùng và quyền</span>
-        </span>
-        <a-menu-item @click='toggleCollapsed' key='admin-users-list'>
-          <nuxt-link :to="{name:'admin-users-list'}">
-            Danh sách người dùng
-          </nuxt-link>
-        </a-menu-item>
-        <a-menu-item @click='toggleCollapsed' key='admin-users-groups'>
-          <nuxt-link :to="{name:'admin-groups-list'}">
-            Danh sách nhóm người dùng
-          </nuxt-link>
-        </a-menu-item>
-      </a-sub-menu>
-      <a-sub-menu key='admin-user-interfaces'>
-        <span slot='title'>
-          <a-icon type='user' />
-          <span>Quản lý giao diện</span>
-        </span>
-        <a-menu-item @click='toggleCollapsed' key='admin-users-list'>
-          <nuxt-link :to="{name:'admin-users-list'}">
-            Danh sách người dùng
-          </nuxt-link>
-        </a-menu-item>
-        <a-menu-item @click='toggleCollapsed' key='admin-users-groups'>
-          <nuxt-link :to="{name:'admin-groups-list'}">
-            Danh sách nhóm người dùng
-          </nuxt-link>
-        </a-menu-item>
-      </a-sub-menu>
-      <a-sub-menu key='admin-configurations'>
-        <span slot='title'>
-          <a-icon type='user' />
-          <span>Cấu hình và tuỳ chọn</span>
-        </span>
-        <a-menu-item @click='toggleCollapsed' key='admin-users-list'>
-          <nuxt-link :to="{name:'admin-users-list'}">
-            Danh sách người dùng
-          </nuxt-link>
-        </a-menu-item>
-        <a-menu-item @click='toggleCollapsed' key='admin-users-groups'>
-          <nuxt-link :to="{name:'admin-groups-list'}">
-            Danh sách nhóm người dùng
-          </nuxt-link>
-        </a-menu-item>
-      </a-sub-menu>
-      <a-sub-menu key='admin-categories'>
-        <span slot='title'>
+      <a-menu-item @click='toggleCollapsed' key='admin-categories'>
+        <nuxt-link :to="{name:'admin-categories-list'}">
           <a-icon type='folder' />
-          <span>Danh mục</span>
-        </span>
-
-        <a-sub-menu title='Danh mục dùng chung' key='admin-categories-general'>
-          <a-menu-item @click='toggleCollapsed' key='admin-categories-general-documents'>
-            <nuxt-link :to="{name:'admin-categories-general-documents'}">
-              Giấy tờ nộp kèm CCHN
-            </nuxt-link>
-          </a-menu-item>
-          <a-menu-item @click='toggleCollapsed' key='admin-categories-general-training-facilities'>
-            <nuxt-link :to="{name:'admin-categories-general-training-facilities'}">
-              Đơn vị đào tạo
-            </nuxt-link>
-          </a-menu-item>
-          <a-menu-item @click='toggleCollapsed' key='admin-categories-general-countries'>
-            <nuxt-link :to="{name:'admin-categories-general-countries'}">
-              Quốc gia
-            </nuxt-link>
-          </a-menu-item>
-          <a-menu-item @click='toggleCollapsed' key='admin-categories-general-provinces'>
-            <nuxt-link :to="{name:'admin-categories-general-provinces'}">
-              Tỉnh thành
-            </nuxt-link>
-          </a-menu-item>
-          <a-menu-item @click='toggleCollapsed' key='admin-categories-general-districts'>
-            <nuxt-link :to="{name:'admin-categories-general-districts'}">
-              Phường xã
-            </nuxt-link>
-          </a-menu-item>
-          <a-menu-item @click='toggleCollapsed' key='admin-categories-general-ethnics'>
-            <nuxt-link :to="{name:'admin-categories-general-ethnics'}">
-              Dân tộc
-            </nuxt-link>
-          </a-menu-item>
-          <a-menu-item @click='toggleCollapsed' key='admin-categories-general-ethnics'>
-            <nuxt-link :to="{name:'admin-categories-general-ethnics'}">
-              Nhóm đối tượng
-            </nuxt-link>
-          </a-menu-item>
-        </a-sub-menu>
-      </a-sub-menu>
-    </a-menu-item-group>
-
-    <a-menu-item-group key='system'>
-      <template v-slot:title>
-        <p class='sidebar-nav-title'>Hệ thống</p>
-      </template>
-      <a-sub-menu key='admin-utilities'>
-        <span slot='title'>
-          <a-icon type='tool' />
-          <span>Công cụ</span>
-        </span>
-        <a-menu-item @click='toggleCollapsed' key='admin-utilities-logs'>
-          <nuxt-link :to="{name:'admin-utilities-logs'}">
-            Lịch sử hoạt động
-          </nuxt-link>
-        </a-menu-item>
-      </a-sub-menu>
-
+          Danh mục
+        </nuxt-link>
+      </a-menu-item>
+      <a-menu-item @click='toggleCollapsed' key='admin-tags'>
+        <nuxt-link :to="{name:'admin-tags-list'}">
+          <a-icon type='tag' />
+          Từ khoá
+        </nuxt-link>
+      </a-menu-item>
+      <a-menu-item @click='toggleCollapsed' key='admin-articles'>
+        <nuxt-link :to="{name:'admin-articles-list'}">
+          <a-icon type='file' />
+          Bài viết
+        </nuxt-link>
+      </a-menu-item>
+      <a-menu-item @click='toggleCollapsed' key='admin-redirects'>
+        <nuxt-link :to="{name:'admin-redirects-list'}">
+          <a-icon type="branches" />
+          Điều hướng
+        </nuxt-link>
+      </a-menu-item>
+      <a-menu-item @click='toggleCollapsed' key='admin-menus'>
+        <nuxt-link :to="{name:'admin-menus-list'}">
+          <a-icon type='menu' />
+          Menu
+        </nuxt-link>
+      </a-menu-item>
+      <a-menu-item @click='toggleCollapsed' key='admin-comments'>
+        <nuxt-link :to="{name:'admin-comments-list'}">
+          <a-icon type='message' />
+          Bình luận
+        </nuxt-link>
+      </a-menu-item>
+      <a-menu-item @click='toggleCollapsed' key='admin-users'>
+        <nuxt-link :to="{name:'admin-users-list'}">
+          <a-icon type='team' />
+          Người dùng
+        </nuxt-link>
+      </a-menu-item>
     </a-menu-item-group>
   </a-menu>
 </template>

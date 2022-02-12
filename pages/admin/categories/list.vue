@@ -1,15 +1,12 @@
 <template>
   <div>
-    <a-page-header title="Tổng quan hệ thống"/>
-    <a-row :gutter='16' justify="center">
-      <overview-card/>
-    </a-row>
+    danh sách danh mục
   </div>
 </template>
 
 <script>
 export default {
-  name: 'index',
+  name: 'list',
   layout: 'admin',
   data: () => ({}),
   methods: {},

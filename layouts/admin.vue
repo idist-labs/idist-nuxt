@@ -25,6 +25,9 @@ export default {
   name: `AdminLayout`,
   components: { IdistFooter, IdistMenu, IdistHeader, Layout, Content },
   layout: 'admin',
+  head:{
+    title:"CMS IdisT - Blogger"
+  },
   middleware: ['authenticated'],
   data: () => ({}),
   computed: {

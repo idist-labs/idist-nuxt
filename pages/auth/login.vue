@@ -50,7 +50,6 @@
 </template>
 
 <script>
-import 'assets/scss/pages/login.scss'
 
 export default {
   name: 'Login',

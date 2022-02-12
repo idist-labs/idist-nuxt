@@ -1,16 +1,12 @@
 <template>
   <div>
-    <a-page-header title="Tổng quan hệ thống"/>
-    <a-row :gutter='16' justify="center">
-      <overview-card/>
-    </a-row>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'index',
-  layout: 'admin',
+  name: 'overviewCard',
   data: () => ({}),
   methods: {},
   created() {
