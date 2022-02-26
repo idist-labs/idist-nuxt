@@ -21,43 +21,66 @@
       <a-menu-item @click='toggleCollapsed' key='admin-categories'>
         <nuxt-link :to="{name:'admin-categories-list'}">
           <a-icon type='folder' />
-          Danh mục
+          <span>
+            Danh mục
+          </span>
         </nuxt-link>
       </a-menu-item>
       <a-menu-item @click='toggleCollapsed' key='admin-tags'>
         <nuxt-link :to="{name:'admin-tags-list'}">
           <a-icon type='tag' />
-          Từ khoá
+          <span>
+            Từ khoá
+          </span>
         </nuxt-link>
       </a-menu-item>
       <a-menu-item @click='toggleCollapsed' key='admin-articles'>
         <nuxt-link :to="{name:'admin-articles-list'}">
           <a-icon type='file' />
-          Bài viết
+          <span>
+            Bài viết
+          </span>
         </nuxt-link>
       </a-menu-item>
       <a-menu-item @click='toggleCollapsed' key='admin-redirects'>
         <nuxt-link :to="{name:'admin-redirects-list'}">
-          <a-icon type="branches" />
-          Điều hướng
+          <a-icon type='branches' />
+          <span>
+            Điều hướng
+          </span>
         </nuxt-link>
       </a-menu-item>
       <a-menu-item @click='toggleCollapsed' key='admin-menus'>
         <nuxt-link :to="{name:'admin-menus-list'}">
           <a-icon type='menu' />
-          Menu
+          <span>
+            Menu
+          </span>
         </nuxt-link>
       </a-menu-item>
       <a-menu-item @click='toggleCollapsed' key='admin-comments'>
         <nuxt-link :to="{name:'admin-comments-list'}">
           <a-icon type='message' />
-          Bình luận
+          <span>
+            Bình luận
+          </span>
         </nuxt-link>
       </a-menu-item>
       <a-menu-item @click='toggleCollapsed' key='admin-users'>
         <nuxt-link :to="{name:'admin-users-list'}">
           <a-icon type='team' />
-          Người dùng
+          <span>
+            Người dùng
+          </span>
+        </nuxt-link>
+      </a-menu-item>
+
+      <a-menu-item @click='toggleCollapsed' key='admin-analytics'>
+        <nuxt-link :to="{name:'admin-analytics-list'}">
+          <a-icon type='area-chart' />
+          <span>
+            Thống kê
+          </span>
         </nuxt-link>
       </a-menu-item>
     </a-menu-item-group>
@@ -102,19 +125,6 @@ export default {
         this.selectedKeys = [this.$route.matched[0].name]
         this.openKeys = [this.$route.matched[0].name]
         this.preOpenKeys = [this.$route.matched[0].name]
-        // if (this.$route.matched.length > 2) {
-        //   this.selectedKeys = [this.$route.matched[2].name]
-        //   this.openKeys = [this.$route.matched[1].name]
-        //   this.preOpenKeys = [this.$route.matched[1].name]
-        // } else if (this.$route.matched.length > 3) {
-        //   this.selectedKeys = [this.$route.matched[3].name]
-        //   this.openKeys = [this.$route.matched[1].name]
-        //   this.preOpenKeys = [this.$route.matched[1].name]
-        // } else {
-        //   this.selectedKeys = [this.$route.matched[1].name]
-        //   this.openKeys = [this.$route.matched[1].name]
-        //   this.preOpenKeys = [this.$route.matched[1].name]
-        // }
       }
     }
   },

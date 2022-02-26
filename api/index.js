@@ -1,23 +1,27 @@
 let config = {
-  RefreshToken: '/api/v1/auth/refresh-token',
-  GetOidc: '/api/v1/auth/oidc',
-  CodeAuthorization: '/api/v1/auth/code-authorization',
   PostLogout: '/api/v1/auth/logout',
-
   PostLogin: '/api/v1/auth/login',
-  GetProfile: '/api/v1/admin/profile'
+  GetProfile: '/api/v1/admin/profile',
+
+  // Categories
+  ListCategories: "/api/v1/admin/categories",
+  CreateCategory: "/api/v1/admin/categories",
+  GetCategory: "/api/v1/admin/categories/{id}",
+  UpdateCategory: "/api/v1/admin/categories/{id}",
+  DeleteCategory: "/api/v1/admin/categories/{id}"
+
 }
 
 let api = new Proxy(config, {
   get(target, name) {
 
-    return Reflect.get(target, name)
-    //
-    // if (name !== 'params') {
-    //   return Reflect.get(target, name)
-    // } else {
-    //   return Reflect.get(target, name)
-    // }
+    // return Reflect.get(target, name)
+
+    if (name !== 'params') {
+      return Reflect.get(target, name)
+    } else {
+      return Reflect.get(target, name)
+    }
   }
 
 })
