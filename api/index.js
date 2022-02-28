@@ -4,11 +4,18 @@ let config = {
   GetProfile: '/api/v1/admin/profile',
 
   // Categories
-  ListCategories: "/api/v1/admin/categories",
-  CreateCategory: "/api/v1/admin/categories",
-  GetCategory: "/api/v1/admin/categories/{id}",
-  UpdateCategory: "/api/v1/admin/categories/{id}",
-  DeleteCategory: "/api/v1/admin/categories/{id}"
+  ListCategories: '/api/v1/admin/categories',
+  CreateCategory: '/api/v1/admin/categories',
+  GetCategory: '/api/v1/admin/categories/{id}',
+  UpdateCategory: '/api/v1/admin/categories/{id}',
+  DeleteCategory: '/api/v1/admin/categories/{id}',
+
+  // Tags
+  ListTags: '/api/v1/admin/tags',
+  CreateTag: '/api/v1/admin/tags',
+  GetTag: '/api/v1/admin/tags/{id}',
+  UpdateTag: '/api/v1/admin/tags/{id}',
+  DeleteTag: '/api/v1/admin/tags/{id}'
 
 }
 
