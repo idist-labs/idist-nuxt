@@ -6,7 +6,14 @@
       <a-row :gutter='16'>
         <a-col :xxl='20' :lg='18' :md='18' :sm='24'>
           <a-card class='mb-20'>
-            <article-title :value='entry' />
+            <a-row :gutter='10'>
+              <a-col :md='18'>
+                <article-title :value='entry' />
+              </a-col>
+              <a-col :md='6'>
+                <article-slug :value='entry' />
+              </a-col>
+            </a-row>
             <article-description :value='entry' />
           </a-card>
           <a-card class='mb-20' :body-style="{padding:' 0 !important'}">
@@ -18,7 +25,12 @@
           </a-card>
         </a-col>
         <a-col :xxl='4' :lg='6' :md='6' :sm='24'>
-          <a-card>
+          <a-card  class='mb-20'   :body-style="{padding:' 10px !important'}">
+            <article-thumbnail :value='entry' @update='e => entry = e' />
+            <article-published-at :value='entry' @update='e => entry = e' />
+            <article-category :value='entry' @update='e => entry = e' />
+          </a-card>
+          <a-card  class='mb-20' >
             <a-button :loading='loading' :disabled='loading' type='primary'
                       html-type='submit' @click.prevent='SubmitForm'>
               Lưu
@@ -45,19 +57,27 @@ import ArticleDescription from '@/elements/articles/article-description'
 import ArticleContent from '@/elements/articles/article-content'
 import ArticleRelates from '~/elements/articles/article-relates'
 import ArticleTags from '~/elements/articles/article-tags'
+import ArticleSlug from '~/elements/articles/article-slug'
+import ArticleThumbnail from '~/elements/articles/article-thumbnail'
+import ArticlePublishedAt from '~/elements/articles/article-published-at'
+import ArticleCategory from '~/elements/articles/article-category'
 
 export default {
   name: 'create',
-  components: { ArticleTags, ArticleRelates, ArticleContent, ArticleDescription, ArticleTitle, CategoryParent },
+  components: { ArticleCategory, ArticlePublishedAt, ArticleThumbnail, ArticleSlug, ArticleTags, ArticleRelates, ArticleContent, ArticleDescription, ArticleTitle, CategoryParent },
   layout: 'admin',
   data: () => ({
     loading: false,
     entry: {
       title: '',
+      thumbnail: '',
       description: '',
       slug: '',
       content: '',
-      relate_article_ids: []
+      relate_article_ids: [],
+      published_at: null,
+      category_id: null,
+      category: null,
     },
     rules: {
       title: [
