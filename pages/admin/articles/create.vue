@@ -12,6 +12,10 @@
           <a-card class='mb-20' :body-style="{padding:' 0 !important'}">
             <article-content :value='entry' @update='e => entry = e' />
           </a-card>
+          <a-card class='mb-20'>
+            <article-relates :value='entry' @update='e => entry = e' />
+            <article-tags :value='entry' @update='e => entry = e' />
+          </a-card>
         </a-col>
         <a-col :xxl='4' :lg='6' :md='6' :sm='24'>
           <a-card>
@@ -39,10 +43,12 @@ import CategoryParent from '~/elements/categories/category-parent'
 import ArticleTitle from '@/elements/articles/article-title'
 import ArticleDescription from '@/elements/articles/article-description'
 import ArticleContent from '@/elements/articles/article-content'
+import ArticleRelates from '~/elements/articles/article-relates'
+import ArticleTags from '~/elements/articles/article-tags'
 
 export default {
   name: 'create',
-  components: { ArticleContent, ArticleDescription, ArticleTitle, CategoryParent },
+  components: { ArticleTags, ArticleRelates, ArticleContent, ArticleDescription, ArticleTitle, CategoryParent },
   layout: 'admin',
   data: () => ({
     loading: false,
@@ -50,7 +56,8 @@ export default {
       title: '',
       description: '',
       slug: '',
-      content: ''
+      content: '',
+      relate_article_ids: []
     },
     rules: {
       title: [
@@ -74,6 +81,13 @@ export default {
         {
           max: 120,
           message: 'Độ dài tối đa 220 ký tự',
+          trigger: 'blur'
+        }
+      ],
+      content: [
+        {
+          required: true,
+          message: 'Không được bỏ trống',
           trigger: 'blur'
         }
       ]
