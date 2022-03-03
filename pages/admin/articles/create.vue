@@ -1,0 +1,124 @@
+<template>
+  <div>
+    <a-page-header title='Tạo mới bài viết' @back='() => routerBack()' />
+
+    <a-form-model ref='FormData' layout='vertical' :rules='rules' :model='entry'>
+      <a-row :gutter='16'>
+        <a-col :xxl='20' :lg='18' :md='18' :sm='24'>
+          <a-card class='mb-20'>
+            <article-title :value='entry' />
+            <article-description :value='entry' />
+          </a-card>
+          <a-card class='mb-20' :body-style="{padding:' 0 !important'}">
+            <article-content :value='entry' @update='e => entry = e' />
+          </a-card>
+        </a-col>
+        <a-col :xxl='4' :lg='6' :md='6' :sm='24'>
+          <a-card>
+            <a-button :loading='loading' :disabled='loading' type='primary'
+                      html-type='submit' @click.prevent='SubmitForm'>
+              Lưu
+            </a-button>
+            <a-popconfirm placement='top' ok-text='Đồng ý' cancel-text='Không' @confirm='routerBack'>
+              <template v-slot:title>
+                <p>Huỷ tạo mới bài viết?</p>
+                <p>Bạn xác nhận huỷ tạo bài viết này...</p>
+              </template>
+              <a-button type='white' size='default' :outlined='true'>Huỷ</a-button>
+            </a-popconfirm>
+          </a-card>
+        </a-col>
+      </a-row>
+    </a-form-model>
+
+  </div>
+</template>
+
+<script>
+import CategoryParent from '~/elements/categories/category-parent'
+import ArticleTitle from '@/elements/articles/article-title'
+import ArticleDescription from '@/elements/articles/article-description'
+import ArticleContent from '@/elements/articles/article-content'
+
+export default {
+  name: 'create',
+  components: { ArticleContent, ArticleDescription, ArticleTitle, CategoryParent },
+  layout: 'admin',
+  data: () => ({
+    loading: false,
+    entry: {
+      title: '',
+      description: '',
+      slug: '',
+      content: ''
+    },
+    rules: {
+      title: [
+        {
+          required: true,
+          message: 'Không được bỏ trống',
+          trigger: 'blur'
+        },
+        {
+          min: 10,
+          message: 'Độ dài tối thiểu 10 ký tự',
+          trigger: 'blur'
+        },
+        {
+          max: 100,
+          message: 'Độ dài tối đa 100 ký tự',
+          trigger: 'blur'
+        }
+      ],
+      description: [
+        {
+          max: 120,
+          message: 'Độ dài tối đa 220 ký tự',
+          trigger: 'blur'
+        }
+      ]
+    }
+  }),
+  watch: {
+    entry: {
+      handler: function() {
+        console.log(this.entry)
+      },
+      deep: true
+    }
+  },
+  methods: {
+    routerBack() {
+      this.$router.push({ name: 'admin-articles-list' })
+    },
+    encodeTag() {
+      if (process.client) {
+        return window.btoa(unescape(encodeURIComponent(this.entry.name)))
+      } else {
+        return Buffer.from(this.entry.name, 'utf-8').toString('base64')
+      }
+    },
+    async SubmitForm() {
+      this.$refs.FormData.validate(async valid => {
+        if (valid) {
+          this.loading = true
+          let response = await this.$store.dispatch('articles/CreateArticle', this.entry)
+          if (response && response.code === 200) {
+            this.$toast.show(response.message, { duration: 2000, type: 'success' })
+          }
+          this.loading = false
+        }
+      })
+
+    }
+  },
+  created() {
+  },
+  mounted() {
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

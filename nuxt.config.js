@@ -1,7 +1,7 @@
 export default {
   server: {
     port: process.env.PORT || 8000,
-    host:  process.env.HOST || '0.0.0.0'
+    host: process.env.HOST || '0.0.0.0'
   },
   dev: process.env.NODE_ENV !== 'production',
   loading: {
@@ -26,6 +26,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { src: '/ckfinder/ckfinder.js' }
     ]
   },
 
@@ -33,12 +36,12 @@ export default {
   css: [
     '~/assets/less/antd',
     '~/assets/less/custom',
-    "vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css"
+    'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
   ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/antd-ui',
-    '@/plugins/axios',
+    '@/plugins/axios'
   ],
   toast: {
     position: 'top-right',
@@ -69,13 +72,13 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     'cookie-universal-nuxt',
-    '@nuxtjs/toast',
+    '@nuxtjs/toast'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.API_ENDPOINT,
+    baseURL: process.env.API_ENDPOINT
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -99,5 +102,4 @@ export default {
       }
     }
   }
-
 }

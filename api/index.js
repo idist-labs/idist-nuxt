@@ -15,7 +15,14 @@ let config = {
   CreateTag: '/api/v1/admin/tags',
   GetTag: '/api/v1/admin/tags/{id}',
   UpdateTag: '/api/v1/admin/tags/{id}',
-  DeleteTag: '/api/v1/admin/tags/{id}'
+  DeleteTag: '/api/v1/admin/tags/{id}',
+
+  // Articles
+  ListArticles: '/api/v1/admin/articles',
+  CreateArticle: '/api/v1/admin/articles',
+  GetArticle: '/api/v1/admin/articles/{id}',
+  UpdateArticle: '/api/v1/admin/articles/{id}',
+  DeleteArticle: '/api/v1/admin/articles/{id}'
 
 }
 
