@@ -1,5 +1,5 @@
 let config = {
-  PostLogout: '/api/v1/auth/logout',
+  PostLogout: '/api/v1/admin/logout',
   PostLogin: '/api/v1/auth/login',
   GetProfile: '/api/v1/admin/profile',
 
@@ -16,6 +16,13 @@ let config = {
   GetTag: '/api/v1/admin/tags/{id}',
   UpdateTag: '/api/v1/admin/tags/{id}',
   DeleteTag: '/api/v1/admin/tags/{id}',
+
+  // Tags
+  ListProvinces: '/api/v1/common/provinces',
+  CreateProvince: '/api/v1/admin/provinces',
+  GetProvince: '/api/v1/admin/provinces/{id}',
+  UpdateProvince: '/api/v1/admin/provinces/{id}',
+  DeleteProvince: '/api/v1/admin/provinces/{id}',
 
   // Articles
   ListArticles: '/api/v1/admin/articles',

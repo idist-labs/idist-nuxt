@@ -20,7 +20,7 @@
                    :md='{span:18, offset:3}'
                    :sm='{span:20, offset:2}'>
               <div>
-                <a-alert type='error' v-if="message !== ''" :message='message' closable />
+                <a-alert type='error' v-if="message !== ''" class='mb-20' :message='message' closable />
               </div>
 
               <a-form-model-item prop='username' name='username' label='Tên đăng nhập'>

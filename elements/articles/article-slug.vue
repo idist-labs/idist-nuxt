@@ -40,7 +40,6 @@ export default {
     },
     'value.title': {
       handler: function() {
-        console.log('has change: ' + this.value.title);
         if (!this.is_changed || this.entry.slug == '') {
           this.entry.slug = this.slugify(this.value.title);
         }

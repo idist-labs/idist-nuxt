@@ -2,7 +2,7 @@
   <div id='admin-layout'>
     <idist-header :theme='theme'/>
     <layout class='layout'>
-        <idist-menu :theme='theme'/>
+      <idist-menu :theme='theme'/>
       <layout class='atbd-main-layout'>
         <content id='main-section'>
           <Nuxt />

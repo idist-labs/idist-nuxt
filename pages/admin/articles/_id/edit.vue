@@ -2,7 +2,7 @@
   <div>
     <a-page-header title='Tạo mới bài viết' @back='() => routerBack()' />
 
-    <a-form-model ref='FormData' layout='vertical' :rules='rules' :model='entry'>
+    <a-form-model v-if='!loading' ref='FormData' layout='vertical' :rules='rules' :model='entry'>
       <a-row :gutter='16'>
         <a-col :xxl='18' :lg='18' :md='18' :sm='24'>
           <a-card class='mb-20'>
@@ -67,7 +67,7 @@ import ArticleCategory from '~/elements/articles/article-category'
 import ArticleHighlight from '~/elements/articles/article-highlight'
 
 export default {
-  name: 'create',
+  name: 'edit',
   components: {
     ArticleHighlight,
     ArticleCategory,
@@ -150,12 +150,18 @@ export default {
         return Buffer.from(this.entry.name, 'utf-8').toString('base64')
       }
     },
+    async getData(){
+      this.loading = true
+      let response = await this.$store.dispatch('articles/GetArticle', this.$route.params.id)
+      this.entry = response.data.entry
+      this.loading = false
+    },
     async SubmitForm(status = "draft") {
       this.$refs.FormData.validate(async valid => {
         if (valid) {
           this.loading = true
           this.entry.status = status
-          let response = await this.$store.dispatch('articles/CreateArticle', this.entry)
+          let response = await this.$store.dispatch('articles/UpdateArticle', this.entry)
           if (response && response.code === 200) {
             this.$toast.show(response.message, { duration: 2000, type: 'success' })
             await  this.$router.push({name: 'admin-articles-id-edit', params:{id: response.data.entry.id}})
@@ -167,6 +173,7 @@ export default {
     }
   },
   created() {
+    this.getData()
   },
   mounted() {
   }
