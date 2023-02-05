@@ -16,7 +16,7 @@ export default {
   data: () => ({
     time: '',
     interval: null,
-    dateFormat: 'HH:mm DD/MM/YYYY',
+    dateFormat: 'DD/MM/YYYY',
   }),
   watch: {
     time: {

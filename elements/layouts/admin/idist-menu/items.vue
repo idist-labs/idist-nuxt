@@ -84,6 +84,35 @@
         </nuxt-link>
       </a-menu-item>
     </a-menu-item-group>
+    <a-menu-item-group key='ptit'>
+    <template v-slot:title>
+      <p class='sidebar-nav-title'>Danh mục</p>
+    </template>
+      <a-menu-item @click='toggleCollapsed' key='admin-provinces'>
+        <nuxt-link :to="{name:'admin-provinces-list'}">
+          <a-icon type='map' />
+          <span>
+            Tỉnh thành
+          </span>
+        </nuxt-link>
+      </a-menu-item>
+      <a-menu-item @click='toggleCollapsed' key='admin-schools'>
+        <nuxt-link :to="{name:'admin-schools-list'}">
+          <a-icon type='map' />
+          <span>
+            Trường học
+          </span>
+        </nuxt-link>
+      </a-menu-item>
+      <a-menu-item @click='toggleCollapsed' key='admin-admissions'>
+        <nuxt-link :to="{name:'admin-admissions-list'}">
+          <a-icon type='map' />
+          <span>
+            Tuyển sinh
+          </span>
+        </nuxt-link>
+      </a-menu-item>
+    </a-menu-item-group>
   </a-menu>
 </template>
 <script>

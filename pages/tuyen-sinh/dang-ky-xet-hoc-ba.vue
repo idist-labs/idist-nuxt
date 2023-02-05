@@ -28,9 +28,7 @@
                 </a-form-model-item>
               </a-col>
               <a-col :md='12'>
-                <a-form-model-item prop='name' name='name' label='Họ và tên'>
-                  <a-input v-model:value='entry.name' placeholder='Nhập tên...' />
-                </a-form-model-item>
+                <birthday :value='entry' @update='e => entry = e' />
               </a-col>
               <a-col :md='12'>
                 <a-row :gutter='16'>
@@ -81,8 +79,8 @@
                 </a-form-model-item>
               </a-col>
               <a-col :md='12'>
-                <a-form-model-item prop='class_name' name='class_name' label='Số CMND/CCCD'>
-                  <a-input v-model:value='entry.class_name' placeholder='...' />
+                <a-form-model-item prop='cmnd' name='cmnd' label='Số CMND/CCCD'>
+                  <a-input v-model:value='entry.cmnd' placeholder='...' />
                 </a-form-model-item>
               </a-col>
               <a-col :md='12'>
@@ -277,20 +275,20 @@
               </a-checkbox>
               <div v-if='entry.average_3_years'>
                 <a-card title='Ngành 1'>
-                  <a-form-model-item prop='nganh_1.name' name='nganh_1.name' label='Ngành xét tuyển'>
-                    <a-select ref='select_gender' v-model:value='entry.nganh_1.name'>
+                  <a-form-model-item prop='nganh_4.name' name='nganh_4.name' label='Ngành xét tuyển'>
+                    <a-select ref='select_gender' v-model:value='entry.nganh_4.name'>
                     </a-select>
                   </a-form-model-item>
                 </a-card>
                 <a-card title='Ngành 2'>
-                  <a-form-model-item prop='nganh_2.name' name='nganh_2.name' label='Ngành xét tuyển'>
-                    <a-select ref='select_gender' v-model:value='entry.nganh_2.name'>
+                  <a-form-model-item prop='nganh_5.name' name='nganh_5.name' label='Ngành xét tuyển'>
+                    <a-select ref='select_gender' v-model:value='entry.nganh_5.name'>
                     </a-select>
                   </a-form-model-item>
                 </a-card>
                 <a-card title='Ngành 3'>
-                  <a-form-model-item prop='nganh_3.name' name='nganh_3.name' label='Ngành xét tuyển'>
-                    <a-select ref='select_gender' v-model:value='entry.nganh_3.name'>
+                  <a-form-model-item prop='nganh_6.name' name='nganh_6.name' label='Ngành xét tuyển'>
+                    <a-select ref='select_gender' v-model:value='entry.nganh_6.name'>
                     </a-select>
                   </a-form-model-item>
                 </a-card>
@@ -307,7 +305,7 @@
               </strong>
             </div>
             <a-row :gutter='16'>
-              <a-col :md='12' v-for='(khaosat, key) in entry.khao_sat' :key='key'>
+              <a-col :md='12' v-for='(khaosat, key) in entry.khao_sat' :key='key' class='mb-10'>
                 <a-checkbox v-model='khaosat.value'>
                   {{ khaosat.name }}
                 </a-checkbox>
@@ -358,25 +356,35 @@ export default {
     entry: {
       name: '',
       gender: '',
-      birthday: null,
+      birthday: '',
       ethnic: '',
       religion: '',
       graduation_year: 2022,
+      cmnd: '',
+      issued_at: '',
+      issue_place: null,
+      issue_place_id: 0,
+      province: null,
+      province_id: 0,
+      academic: '',
+      conduct: '',
+      class_name: '',
       class_10: {
-        province: '',
+        province_id: 0,
         school: ''
       },
       class_11: {
-        province: '',
+        province_id: 0,
         school: ''
       },
       class_12: {
-        province: '',
+        province_id: 0,
         school: ''
       },
       email: '',
       phone: '',
       parent_phone: '',
+      priority_object: '',
       average_3_subjects: false,
       average_3_years: false,
       nganh_1: {
@@ -388,6 +396,18 @@ export default {
         to_hop: ''
       },
       nganh_3: {
+        name: '',
+        to_hop: ''
+      },
+      nganh_4: {
+        name: '',
+        to_hop: ''
+      },
+      nganh_5: {
+        name: '',
+        to_hop: ''
+      },
+      nganh_6: {
         name: '',
         to_hop: ''
       },

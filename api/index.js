@@ -29,22 +29,33 @@ let config = {
   CreateArticle: '/api/v1/admin/articles',
   GetArticle: '/api/v1/admin/articles/{id}',
   UpdateArticle: '/api/v1/admin/articles/{id}',
-  DeleteArticle: '/api/v1/admin/articles/{id}'
+  DeleteArticle: '/api/v1/admin/articles/{id}',
 
+  // Schools
+  ListSchools: '/api/v1/admin/schools',
+  CreateSchool: '/api/v1/admin/schools',
+  GetSchool: '/api/v1/admin/schools/{id}',
+  UpdateSchool: '/api/v1/admin/schools/{id}',
+  DeleteSchool: '/api/v1/admin/schools/{id}',
+
+  // Admissions
+  ListAdmissions: '/api/v1/admin/admissions',
+  CreateAdmission: '/api/v1/admin/admissions',
+  GetAdmission: '/api/v1/admin/admissions/{id}',
+  UpdateAdmission: '/api/v1/admin/admissions/{id}',
+  DeleteAdmission: '/api/v1/admin/admissions/{id}',
+
+  CreateTuyenSinh: '/api/v1/common/tuyen-sinh',
 }
 
 let api = new Proxy(config, {
   get(target, name) {
-
-    // return Reflect.get(target, name)
-
     if (name !== 'params') {
       return Reflect.get(target, name)
     } else {
       return Reflect.get(target, name)
     }
   }
-
 })
 
 api.params = (name, options) => {
