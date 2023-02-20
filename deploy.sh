@@ -19,4 +19,4 @@ endpoint=$(read_var REGISTRY)
 echo "Building and pushing dockerfile to $endpoint..."
 
 docker build -t $endpoint . && docker push $endpoint
-sleep 30
+#sleep 30

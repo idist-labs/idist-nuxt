@@ -2,3 +2,4 @@ node_modules
 dist
 .nuxt
 package-lock.json
+.github

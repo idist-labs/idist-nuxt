@@ -85,7 +85,7 @@ export default {
   build: {
     extractCSS: true,
     devtools: true,
-    parallel: true,
+    parallel: false,
     optimizeCSS: true,
     loaders: {
       less: {
