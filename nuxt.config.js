@@ -9,7 +9,8 @@ export default {
     height: '1px'
   },
   publicRuntimeConfig: {
-    baseApi: process.env.API_ENDPOINT || '/'
+    baseApi: process.env.API_ENDPOINT || '/',
+    buildVersion: "",
   },
   privateRuntimeConfig: {},
   // Global page headers: https://go.nuxtjs.dev/config-head
