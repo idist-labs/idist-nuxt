@@ -10,7 +10,7 @@ export default {
   },
   publicRuntimeConfig: {
     baseApi: process.env.API_ENDPOINT || '/',
-    buildVersion: "",
+    buildVersion: ""
   },
   privateRuntimeConfig: {},
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -74,6 +74,7 @@ export default {
     '@nuxtjs/style-resources',
     'cookie-universal-nuxt',
     '@nuxtjs/toast'
+
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

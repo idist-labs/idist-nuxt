@@ -3,16 +3,16 @@
   <div class='helper-modal'>
     <a-popover placement='topRight' overlayClassName='helper-popover'>
       <template slot='content'>
-        <a class='d-flex align-items-center' style='margin-bottom: 10px' href='mailto:gopy_hny@idist.com.vn'>
+        <a class='d-flex align-items-center' style='margin-bottom: 10px' href='mailto:contact@idist.dev'>
           <a-space :size='10'>
             <a-icon type='mail' :style="{ fontSize: '20px' }" />
-            gopy_hny@idist.com.vn
+            contact@idist.dev
           </a-space>
         </a>
-        <a class='d-flex align-items-center' href='tel:0243.782.2345'>
+        <a class='d-flex align-items-center' href='tel:0886914796'>
           <a-space :size='10'>
             <a-icon type='phone' :style="{ fontSize: '20px' }" />
-            0243.782.2345
+            088.69.14796
           </a-space>
         </a>
       </template>
